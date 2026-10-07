@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="CyberEcho: um jogo para descobrir qual imagem é real e qual foi criada por IA." />
+    <title>CyberEcho | O futuro não se descarta</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="game-shell">
+      <header class="topbar" aria-label="Placar do jogo">
+        <a class="brand" href="#" aria-label="Reiniciar jogo">
+          <span class="brand-mark">◈</span>
+          <span>CyberEcho</span>
+        </a>
+        <div class="scoreboard">
+          <div><span class="metric-label">NÍVEL</span><strong id="level-indicator">1 de 6</strong></div>
+          <span class="score-divider"></span>
+          <div><span class="metric-label">PONTOS</span><strong id="score-indicator">0</strong></div>
+        </div>
+      </header>
+
+      <p class="site-tagline">O futuro não se descarta</p>
+
+      <section id="game-screen" class="game-screen" aria-live="polite">
+        <div class="intro">
+          <p class="eyebrow">DESAFIO VISUAL</p>
+          <h1>Qual imagem é <em>real?</em></h1>
+          <p class="subtitle">Observe os detalhes e escolha uma imagem. Você tem apenas uma tentativa.</p>
+        </div>
+
+        <div class="progress-track" aria-label="Progresso do jogo">
+          <div id="progress-bar" class="progress-bar"></div>
+        </div>
+
+        <div id="choices" class="choices-grid" aria-label="Escolha uma imagem">
+          <button class="image-card" type="button" data-choice="A" aria-label="Escolher imagem A">
+            <img id="image-a" src="" alt="Imagem A para análise" />
+            <span class="card-letter">A</span>
+            <span class="card-prompt">Esta é real?</span>
+            <span class="result-badge" aria-hidden="true"></span>
+          </button>
+          <button class="image-card" type="button" data-choice="B" aria-label="Escolher imagem B">
+            <img id="image-b" src="" alt="Imagem B para análise" />
+            <span class="card-letter">B</span>
+            <span class="card-prompt">Esta é real?</span>
+            <span class="result-badge" aria-hidden="true"></span>
+          </button>
+        </div>
+
+        <section id="feedback" class="feedback" hidden>
+          <div id="feedback-icon" class="feedback-icon"></div>
+          <div>
+            <h2 id="feedback-title"></h2>
+            <p id="feedback-text"></p>
+          </div>
+        </section>
+
+        <div class="action-row">
+          <p id="hint" class="hint">Clique em uma imagem para dar seu palpite.</p>
+          <button id="next-button" class="next-button" type="button" hidden>Próximo nível <span>→</span></button>
+        </div>
+      </section>
+
+      <section id="final-screen" class="final-screen" hidden aria-live="polite">
+        <div class="final-orbit orbit-one"></div><div class="final-orbit orbit-two"></div>
+        <p class="eyebrow">MISSÃO CONCLUÍDA</p>
+        <div class="final-score"><span id="final-score">0</span><small>/ 6</small></div>
+        <h1 id="final-title">Olho clínico!</h1>
+        <p id="final-message"></p>
+        <button id="restart-button" class="restart-button" type="button">Jogar novamente <span>↻</span></button>
+      </section>
+    </main>
+    <script src="script.js"></script>
+  </body>
+</html>
